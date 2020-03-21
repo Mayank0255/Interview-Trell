@@ -1,0 +1,61 @@
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.display>div {
+    width: 70%;
+}
+
+#question-container {
+    border: 1px solid #000;
+    margin-top: 20px;
+}
+
+.controls {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#answer-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+}
+
+button {
+    padding: 5px 10px;
+    margin: 5px;
+}
+
+#question {
+    text-align: center;
+    margin: 10px;
+    padding: 10px;
+    font-size: 25px;
+}
+
+.field{
+    margin: 15px;
+}
+
+#submit{
+    width: 250px;
+    display: block;
+}

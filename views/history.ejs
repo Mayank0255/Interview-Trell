@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="/stylesheets/app.css" />
+</head>
+
+<body>
+    <script>
+
+        var score=0;
+        function checkAnswer(){
+            score = score + 1;
+            console.log(score);
+            
+        }
+        function setScore(){
+            console.log(score);
+        document.getElementById('score').innerHTML = score;
+        }
+    </script>
+    <header>
+        <h1>Quiz App</h1>
+    </header>
+    <div>
+        <div class="tabs">
+            <div>
+                <a href="/index">PLAY GAME</a>
+            </div>
+            <div>
+                <a href="/history">HISTORY</a>
+            </div>
+            <div>
+                <a href="/logout">LOGOUT</a>
+            </div>
+        </div>
+        <div class="display">
+            <div>
+                <% results.forEach(function(results){ %>
+                    <div class="username">
+                        <h2><%= results.username %></h2>
+                    </div>
+                    <div class="score">
+                        <h3><%= results.score %> / 5</h3>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

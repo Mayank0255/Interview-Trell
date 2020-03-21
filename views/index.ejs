@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="/stylesheets/app.css" />
+</head>
+
+<body>
+    <script>
+
+        var score=0;
+        var count = 0;
+        function checkAnswer(){
+            score = score + 1;
+            console.log(score);
+            document.getElementById('saveScore').value = score;
+        }
+        function answer(){
+            count = count + 1;
+        }
+
+        function validate(){
+            if(count == 5){
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+    <header>
+        <h1>Quiz App</h1>
+    </header>
+    <div>
+        <div class="tabs">
+            <div>
+                <a href="/index">PLAY GAME</a>
+            </div>
+            <div>
+                <a href="/history">HISTORY</a>
+            </div>
+            <div>
+                <a href="/logout">LOGOUT</a>
+            </div>
+        </div>
+        <div class="display">
+            <div>
+                <h1>Category: <%= data[0].category%></h1>
+                <h2>Difficulty: <%= data[0].difficulty%></h2>
+                <% data.forEach(function(questions){ %>
+                    <div id="question-container">
+                        <div id="question">
+                            <%=questions.question%>
+                        </div>
+                        <div id="answer-buttons">
+                            <button class="correct" onclick="checkAnswer(),answer()"><%=questions.correct_answer%></button>
+                            <button id="wrong" onclick="answer()"><%=questions.incorrect_answers[0]%></button>
+                            <button id="wrong" onclick="answer()"><%=questions.incorrect_answers[1]%></button>
+                            <button id="wrong" onclick="answer()"><%=questions.incorrect_answers[2]%></button>
+                        </div>
+                    </div>
+                    <% }); %>
+                        <div class="controls">
+                            <form action="/score" method="POST" onsubmit="return validate();">
+                                <input id="saveScore" type="text" name="score" placeholder="Write your score to save" />
+                                <button type="submit" class="submit">SAVE SCORE</button>
+                            </form>
+                        </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
